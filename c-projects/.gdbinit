@@ -1,5 +1,5 @@
 # =============================================================================
-# .gdbinit - GDB Configuration for C Embedded Development
+# .gdbinit - GDB Configuration for embedded C Development
 # =============================================================================
 # Place in the project directory or in ~/.gdbinit
 #
@@ -43,7 +43,7 @@ set disassembly-flavor intel
 # set logging on
 
 # -----------------------------------------------------------------------------
-# ARM Embedded configuration
+# ARM embedded Configuration
 # -----------------------------------------------------------------------------
 
 # Default remote target (OpenOCD, J-Link, ST-Link, etc.)
@@ -276,7 +276,7 @@ end
 # -----------------------------------------------------------------------------
 echo \n
 echo =====================================================\n
-echo   GDB Embedded Configuration Loaded\n
+echo   GDB embedded Configuration Loaded\n
 echo =====================================================\n
 echo   Commands: reset, flash, regs, fault, periph\n
 echo   Connect:  ocd (OpenOCD), jlink (J-Link)\n

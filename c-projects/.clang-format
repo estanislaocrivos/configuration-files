@@ -1,8 +1,5 @@
+# Clang-Format Configuration
 ---
-# Merged clang-format configuration
-# Base: .clang-format-1 (primary rules)
-# Extras from: .clang-format-2 and Linux kernel style
-
 BasedOnStyle: Google
 Language: Cpp
 

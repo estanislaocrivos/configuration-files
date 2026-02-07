@@ -37,7 +37,7 @@ LICENSE
 
 ### Static Analysis
 
-- **`.clang-tidy`**: Configuration for Clang-Tidy static analyzer. Enables checks from bugprone, cert, clang-analyzer, performance, and portability categories. Includes naming conventions for C embedded projects (snake_case functions, UPPER_CASE macros, `_t` suffix for types).
+- **`.clang-tidy`**: Configuration for Clang-Tidy static analyzer. Enables checks from bugprone, cert, clang-analyzer, performance, and portability categories. Includes naming conventions for embedded C projects (snake_case functions, UPPER_CASE macros, `_t` suffix for types).
 
 - **`.clangd`**: Configuration for the Clangd language server. Provides IDE-like features (autocompletion, diagnostics, go-to-definition) in any editor that supports LSP. Includes strict warning flags and integrates with Clang-Tidy for real-time static analysis.
 
@@ -47,7 +47,7 @@ LICENSE
 
 ### Git Configuration
 
-- **`.gitignore`**: Comprehensive ignore patterns for C embedded projects. Covers build artifacts (`.o`, `.elf`, `.bin`, `.hex`), IDE files (VSCode, CLion, Eclipse, Keil, IAR), analysis tools (coverage, valgrind), and OS-specific files.
+- **`.gitignore`**: Comprehensive ignore patterns for embedded C projects. Covers build artifacts (`.o`, `.elf`, `.bin`, `.hex`), IDE files (VSCode, CLion, Eclipse, Keil, IAR), analysis tools (coverage, valgrind), and OS-specific files.
 
 - **`.gitattributes`**: Git attributes for consistent file handling. Normalizes line endings to LF, configures binary file detection, sets up diff drivers for C files, and marks vendor directories for GitHub statistics exclusion.
 
@@ -96,7 +96,7 @@ The `.vscode/` directory contains VSCode-specific settings:
   - Static analysis (cppcheck, clang-tidy)
   - Documentation generation
 
-- **`extensions.json`**: Recommended extensions for C embedded development.
+- **`extensions.json`**: Recommended extensions for embedded C development.
 
 ## Usage
 

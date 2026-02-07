@@ -24,36 +24,36 @@ Checks: >
   -misc-no-recursion,
 
 # Treat warnings as errors
-WarningsAsErrors: ''
+WarningsAsErrors: ""
 
 # Headers to analyze (regex)
-HeaderFilterRegex: '.*'
+HeaderFilterRegex: ".*"
 
 # Output format
 FormatStyle: file
 
 # Check-specific options
 CheckOptions:
-  # Naming conventions for C embedded
+  # Naming conventions for embedded C
   - key: readability-identifier-naming.GlobalConstantCase
     value: UPPER_CASE
   - key: readability-identifier-naming.GlobalConstantPrefix
-    value: ''
+    value: ""
 
   - key: readability-identifier-naming.MacroDefinitionCase
     value: UPPER_CASE
   - key: readability-identifier-naming.MacroDefinitionPrefix
-    value: ''
+    value: ""
 
   - key: readability-identifier-naming.EnumConstantCase
     value: UPPER_CASE
   - key: readability-identifier-naming.EnumConstantPrefix
-    value: ''
+    value: ""
 
   - key: readability-identifier-naming.FunctionCase
     value: lower_case
   - key: readability-identifier-naming.FunctionPrefix
-    value: ''
+    value: ""
 
   - key: readability-identifier-naming.GlobalVariableCase
     value: lower_case
@@ -63,17 +63,17 @@ CheckOptions:
   - key: readability-identifier-naming.LocalVariableCase
     value: lower_case
   - key: readability-identifier-naming.LocalVariablePrefix
-    value: ''
+    value: ""
 
   - key: readability-identifier-naming.ParameterCase
     value: lower_case
   - key: readability-identifier-naming.ParameterPrefix
-    value: ''
+    value: ""
 
   - key: readability-identifier-naming.StructCase
     value: lower_case
   - key: readability-identifier-naming.StructPrefix
-    value: ''
+    value: ""
   - key: readability-identifier-naming.StructSuffix
     value: _t
 
@@ -98,7 +98,7 @@ CheckOptions:
 
   # Performance checks
   - key: performance-unnecessary-value-param.AllowedTypes
-    value: ''
+    value: ""
 
   # Misc
   - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
@@ -106,13 +106,12 @@ CheckOptions:
 
   # Cert
   - key: cert-err33-c.CheckedFunctions
-    value: ''
+    value: ""
 
   # Bugprone
   - key: bugprone-argument-comment.StrictMode
     value: true
   - key: bugprone-assert-side-effect.AssertMacros
-    value: 'assert,ASSERT,configASSERT'
+    value: "assert,ASSERT,configASSERT"
   - key: bugprone-sizeof-expression.WarnOnSizeOfIntegerExpression
     value: true
-...

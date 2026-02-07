@@ -1,5 +1,5 @@
 # EditorConfig - https://editorconfig.org
-# Editor-agnostic configuration for C embedded projects
+# Editor-agnostic configuration for embedded C projects
 
 root = true
 
