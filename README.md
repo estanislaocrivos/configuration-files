@@ -160,7 +160,7 @@ arm-none-eabi-gdb -x .gdbinit build/firmware.elf
 pip install pre-commit
 
 # Install hooks (run once per repo)
-pre-commit install --install-hooks -t pre-commit -t commit-msg
+pre-commit install --install-hooks
 
 # Run manually on all files
 pre-commit run --all-files
