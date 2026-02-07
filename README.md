@@ -4,6 +4,7 @@ A collection of configuration files for various tools and applications, designed
 
 ## Repository Structure
 
+```text
 c-projects/
 ├── .clang-format
 ├── .pre-commit-config.yaml
@@ -11,6 +12,7 @@ c-projects/
 └── Doxyfile
 README.md
 LICENSE
+```
 
 ## Included Configuration Files
 
