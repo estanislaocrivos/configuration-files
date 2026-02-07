@@ -1,4 +1,4 @@
-# Common Configuration Files
+# Common Configuration Files 📜
 
 A collection of configuration files for various tools and applications, designed to be easily shared and reused across different projects and environments.
 
