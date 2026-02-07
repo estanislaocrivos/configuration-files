@@ -58,9 +58,7 @@ download_file() {
 }
 
 echo ""
-echo "=============================================="
-echo "  C Embedded Configuration Setup"
-echo "=============================================="
+echo "Cloning Embedded C Project Configuration Setup..."
 echo ""
 
 # Root configuration files
@@ -87,9 +85,7 @@ download_file ".vscode/tasks.json" ".vscode/tasks.json"
 download_file ".vscode/extensions.json" ".vscode/extensions.json"
 
 echo ""
-echo "=============================================="
 print_success "Configuration files downloaded successfully!"
-echo "=============================================="
 echo ""
 echo "Next steps:"
 echo "  1. Review and customize the configuration files"
