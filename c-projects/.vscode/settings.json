@@ -15,21 +15,20 @@
     "files.trimFinalNewlines": true,
     "files.eol": "\n",
     // C/C++ Extension (Microsoft)
-    "C_Cpp.default.cStandard": "c99",
-    "C_Cpp.default.cppStandard": "c++17",
-    "C_Cpp.default.intelliSenseMode": "gcc-arm",
-    "C_Cpp.formatting": "clangFormat",
-    "C_Cpp.clang_format_style": "file",
-    "C_Cpp.clang_format_fallbackStyle": "Google",
-    "C_Cpp.errorSquiggles": "enabled",
-    "C_Cpp.dimInactiveRegions": true,
-    "C_Cpp.enhancedColorization": "enabled",
-    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
-    "C_Cpp.inlayHints.parameterNames.enabled": true,
-    "C_Cpp.inlayHints.referenceOperator.enabled": true,
-    // Deshabilitar IntelliSense si usas clangd
+    // "C_Cpp.default.cStandard": "c99",
+    // "C_Cpp.default.cppStandard": "c++17",
+    // "C_Cpp.default.intelliSenseMode": "gcc-arm",
+    // "C_Cpp.formatting": "clangFormat",
+    // "C_Cpp.clang_format_style": "file",
+    // "C_Cpp.clang_format_fallbackStyle": "Google",
+    // "C_Cpp.errorSquiggles": "enabled",
+    // "C_Cpp.dimInactiveRegions": true,
+    // "C_Cpp.enhancedColorization": "enabled",
+    // "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+    // "C_Cpp.inlayHints.parameterNames.enabled": true,
+    // "C_Cpp.inlayHints.referenceOperator.enabled": true,
     // "C_Cpp.intelliSenseEngine": "disabled",
-    // Clangd (alternativa a C/C++ IntelliSense)
+    // Clangd
     "clangd.path": "clangd",
     "clangd.arguments": [
         "--background-index",
@@ -97,14 +96,6 @@
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    // Extensiones Recomendadas
-    // - ms-vscode.cpptools
-    // - llvm-vs-code-extensions.vscode-clangd (alternativa)
-    // - marus25.cortex-debug
-    // - ms-vscode.cmake-tools
-    // - EditorConfig.EditorConfig
-    // - streetsidesoftware.code-spell-checker
-    // - eamodio.gitlens
     // Spell Checker
     "cSpell.words": [
         "cmock",

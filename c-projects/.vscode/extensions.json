@@ -1,10 +1,9 @@
 {
-    // Extensiones recomendadas para desarrollo embedded C en VSCode
     "recommendations": [
         // C/C++ Core
         "ms-vscode.cpptools",
         "ms-vscode.cpptools-extension-pack",
-        // Clangd (alternativa a IntelliSense, mejor rendimiento)
+        // Clangd
         "llvm-vs-code-extensions.vscode-clangd",
         // Debugging Embedded
         "marus25.cortex-debug",
@@ -32,8 +31,6 @@
         "ms-vscode.vscode-serial-monitor",
         // ARM Assembly
         "dan-c-underwood.arm",
-        // Themes (opcional)
-        "zhuangtongfa.material-theme"
     ],
     "unwantedRecommendations": []
 }

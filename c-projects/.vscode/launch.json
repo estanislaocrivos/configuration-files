@@ -1,7 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
-        // OpenOCD + ST-Link (más común para STM32)
+        // OpenOCD + ST-Link
         {
             "name": "Debug (OpenOCD)",
             "type": "cortex-debug",
@@ -74,7 +74,7 @@
                 ]
             }
         },
-        // ST-Link (usando st-util)
+        // ST-Link
         {
             "name": "Debug (ST-Util)",
             "type": "cortex-debug",
@@ -87,7 +87,7 @@
             "runToEntryPoint": "main",
             "preLaunchTask": "Build"
         },
-        // QEMU (para testing sin hardware)
+        // QEMU
         {
             "name": "Debug (QEMU)",
             "type": "cortex-debug",
@@ -99,7 +99,7 @@
             "machine": "netduinoplus2",
             "preLaunchTask": "Build"
         },
-        // PyOCD (alternativa open-source)
+        // PyOCD
         {
             "name": "Debug (PyOCD)",
             "type": "cortex-debug",
@@ -112,7 +112,7 @@
             "svdFile": "${workspaceFolder}/STM32F407.svd",
             "preLaunchTask": "Build"
         },
-        // Native (para tests unitarios en host)
+        // Native
         {
             "name": "Debug Tests (Native)",
             "type": "cppdbg",
@@ -133,7 +133,7 @@
             ],
             "preLaunchTask": "Build Tests"
         },
-        // GDB Server externo (genérico)
+        // GDB Server
         {
             "name": "Debug (External GDB Server)",
             "type": "cortex-debug",
