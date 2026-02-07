@@ -1,0 +1,179 @@
+{
+    // =========================================================================
+    // Editor General
+    // =========================================================================
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.rulers": [80],
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.trimAutoWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.eol": "\n",
+
+    // =========================================================================
+    // C/C++ Extension (Microsoft)
+    // =========================================================================
+    "C_Cpp.default.cStandard": "c99",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.intelliSenseMode": "gcc-arm",
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.dimInactiveRegions": true,
+    "C_Cpp.enhancedColorization": "enabled",
+    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+    "C_Cpp.inlayHints.parameterNames.enabled": true,
+    "C_Cpp.inlayHints.referenceOperator.enabled": true,
+
+    // Deshabilitar IntelliSense si usas clangd
+    // "C_Cpp.intelliSenseEngine": "disabled",
+
+    // =========================================================================
+    // Clangd (alternativa a C/C++ IntelliSense)
+    // =========================================================================
+    "clangd.path": "clangd",
+    "clangd.arguments": [
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--fallback-style=Google",
+        "-j=4",
+        "--pch-storage=memory"
+    ],
+    "clangd.checkUpdates": true,
+    "clangd.restartAfterCrash": true,
+
+    // =========================================================================
+    // Archivos y Exclusiones
+    // =========================================================================
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c",
+        "*.ld": "plaintext",
+        "*.s": "arm",
+        "*.S": "arm",
+        "Makefile.*": "makefile",
+        "*.mk": "makefile",
+        "Doxyfile": "ini"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/build": true,
+        "**/*.o": true,
+        "**/*.d": true,
+        "**/*.elf": true,
+        "**/*.bin": true,
+        "**/*.hex": true,
+        "**/*.map": true
+    },
+    "files.watcherExclude": {
+        "**/build/**": true,
+        "**/.git/**": true
+    },
+    "search.exclude": {
+        "**/build": true,
+        "**/Drivers": true,
+        "**/CMSIS": true,
+        "**/Middlewares": true
+    },
+
+    // =========================================================================
+    // Cortex-Debug Extension
+    // =========================================================================
+    "cortex-debug.openocdPath": "openocd",
+    "cortex-debug.gdbPath": "arm-none-eabi-gdb",
+    "cortex-debug.armToolchainPath": "/usr/bin",
+    "cortex-debug.stutilPath": "st-util",
+    "cortex-debug.JLinkGDBServerPath": "JLinkGDBServer",
+    "cortex-debug.showRTOS": true,
+    "cortex-debug.variableUseNaturalFormat": true,
+
+    // =========================================================================
+    // CMake
+    // =========================================================================
+    "cmake.configureOnOpen": true,
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.generator": "Ninja",
+
+    // =========================================================================
+    // Terminal
+    // =========================================================================
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.env.linux": {
+        "PATH": "${env:PATH}:/usr/local/arm-none-eabi/bin"
+    },
+
+    // =========================================================================
+    // Git
+    // =========================================================================
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+
+    // =========================================================================
+    // Extensiones Recomendadas
+    // =========================================================================
+    // - ms-vscode.cpptools
+    // - llvm-vs-code-extensions.vscode-clangd (alternativa)
+    // - marus25.cortex-debug
+    // - ms-vscode.cmake-tools
+    // - EditorConfig.EditorConfig
+    // - streetsidesoftware.code-spell-checker
+    // - eamodio.gitlens
+
+    // =========================================================================
+    // Spell Checker
+    // =========================================================================
+    "cSpell.words": [
+        "cmock",
+        "ceedling",
+        "doxygen",
+        "gpio",
+        "uart",
+        "usart",
+        "spi",
+        "i2c",
+        "dma",
+        "nvic",
+        "rtos",
+        "freertos",
+        "cortex",
+        "cmsis",
+        "stm32",
+        "hal",
+        "mcu",
+        "isr",
+        "irq",
+        "systick"
+    ],
+    "cSpell.ignorePaths": [
+        "Drivers/**",
+        "CMSIS/**",
+        "build/**"
+    ],
+
+    // =========================================================================
+    // Misceláneos
+    // =========================================================================
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "BUG",
+        "HACK",
+        "XXX",
+        "NOTE",
+        "OPTIMIZE"
+    ],
+    "doxdocgen.generic.authorEmail": "your.email@example.com",
+    "doxdocgen.generic.authorName": "Your Name"
+}

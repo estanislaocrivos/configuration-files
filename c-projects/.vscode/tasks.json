@@ -1,0 +1,478 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // =====================================================================
+        // Build Tasks
+        // =====================================================================
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j8",
+                "all"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Build firmware using Make"
+        },
+        {
+            "label": "Build (CMake)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--parallel",
+                "8"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Build using CMake"
+        },
+        {
+            "label": "CMake Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "build",
+                "-G",
+                "Ninja",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Configure CMake build system"
+        },
+        {
+            "label": "Build Release",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j8",
+                "RELEASE=1",
+                "all"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Build release firmware"
+        },
+
+        // =====================================================================
+        // Clean Tasks
+        // =====================================================================
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Clean build artifacts"
+        },
+        {
+            "label": "Clean (CMake)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "clean"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Clean CMake build"
+        },
+        {
+            "label": "Rebuild",
+            "dependsOn": [
+                "Clean",
+                "Build"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Clean and rebuild"
+        },
+
+        // =====================================================================
+        // Flash Tasks
+        // =====================================================================
+        {
+            "label": "Flash (OpenOCD)",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "interface/stlink.cfg",
+                "-f",
+                "target/stm32f4x.cfg",
+                "-c",
+                "program build/firmware.elf verify reset exit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Flash firmware using OpenOCD"
+        },
+        {
+            "label": "Flash (ST-Flash)",
+            "type": "shell",
+            "command": "st-flash",
+            "args": [
+                "--reset",
+                "write",
+                "build/firmware.bin",
+                "0x08000000"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Flash firmware using st-flash"
+        },
+        {
+            "label": "Flash (J-Link)",
+            "type": "shell",
+            "command": "JFlash",
+            "args": [
+                "-openprjbuild/firmware.elf",
+                "-auto",
+                "-startapp",
+                "-exit"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Flash firmware using J-Link"
+        },
+        {
+            "label": "Build and Flash",
+            "dependsOn": [
+                "Build",
+                "Flash (OpenOCD)"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Build and flash firmware"
+        },
+
+        // =====================================================================
+        // Test Tasks (Ceedling)
+        // =====================================================================
+        {
+            "label": "Build Tests",
+            "type": "shell",
+            "command": "ceedling",
+            "args": [
+                "test:all"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Run all unit tests with Ceedling"
+        },
+        {
+            "label": "Test Current File",
+            "type": "shell",
+            "command": "ceedling",
+            "args": [
+                "test:${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Run tests for current file"
+        },
+        {
+            "label": "Test with Coverage",
+            "type": "shell",
+            "command": "ceedling",
+            "args": [
+                "gcov:all"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Run tests with coverage report"
+        },
+        {
+            "label": "Clean Tests",
+            "type": "shell",
+            "command": "ceedling",
+            "args": [
+                "clobber"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "problemMatcher": [],
+            "detail": "Clean test build artifacts"
+        },
+
+        // =====================================================================
+        // Analysis Tasks
+        // =====================================================================
+        {
+            "label": "Cppcheck",
+            "type": "shell",
+            "command": "cppcheck",
+            "args": [
+                "--enable=all",
+                "--std=c99",
+                "--suppress=missingIncludeSystem",
+                "--suppress=unmatchedSuppression",
+                "-I",
+                "inc",
+                "src"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Run static analysis with cppcheck"
+        },
+        {
+            "label": "Clang-Tidy",
+            "type": "shell",
+            "command": "clang-tidy",
+            "args": [
+                "-p",
+                "build",
+                "src/*.c"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Run static analysis with clang-tidy"
+        },
+        {
+            "label": "Format Check",
+            "type": "shell",
+            "command": "clang-format",
+            "args": [
+                "--dry-run",
+                "--Werror",
+                "src/*.c",
+                "inc/*.h"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Check code formatting"
+        },
+        {
+            "label": "Format All",
+            "type": "shell",
+            "command": "clang-format",
+            "args": [
+                "-i",
+                "src/*.c",
+                "inc/*.h"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Format all source files"
+        },
+
+        // =====================================================================
+        // Documentation
+        // =====================================================================
+        {
+            "label": "Generate Docs",
+            "type": "shell",
+            "command": "doxygen",
+            "args": [
+                "Doxyfile"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Generate Doxygen documentation"
+        },
+
+        // =====================================================================
+        // Debug Server Tasks
+        // =====================================================================
+        {
+            "label": "Start OpenOCD",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "interface/stlink.cfg",
+                "-f",
+                "target/stm32f4x.cfg"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^Error:",
+                    "message": 1
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Open On-Chip Debugger",
+                    "endsPattern": "^Info : Listening on port"
+                }
+            },
+            "detail": "Start OpenOCD GDB server"
+        },
+        {
+            "label": "Start J-Link GDB Server",
+            "type": "shell",
+            "command": "JLinkGDBServer",
+            "args": [
+                "-device",
+                "STM32F407VG",
+                "-if",
+                "SWD",
+                "-speed",
+                "4000"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "detail": "Start J-Link GDB server"
+        },
+
+        // =====================================================================
+        // Utility Tasks
+        // =====================================================================
+        {
+            "label": "Size Report",
+            "type": "shell",
+            "command": "arm-none-eabi-size",
+            "args": [
+                "-A",
+                "-x",
+                "build/firmware.elf"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Show firmware size"
+        },
+        {
+            "label": "Disassemble",
+            "type": "shell",
+            "command": "arm-none-eabi-objdump",
+            "args": [
+                "-d",
+                "-S",
+                "build/firmware.elf"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Disassemble firmware"
+        },
+        {
+            "label": "Generate compile_commands.json",
+            "type": "shell",
+            "command": "bear",
+            "args": [
+                "--",
+                "make",
+                "-j8",
+                "all"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Generate compilation database for clangd"
+        },
+        {
+            "label": "Pre-commit Run",
+            "type": "shell",
+            "command": "pre-commit",
+            "args": [
+                "run",
+                "--all-files"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Run all pre-commit hooks"
+        }
+    ]
+}

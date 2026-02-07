@@ -16,7 +16,7 @@ IndentPPDirectives: None
 IndentWrappedFunctionNames: true
 
 # --- Column & Line Limits ---
-ColumnLimit: 100
+ColumnLimit: 80
 MaxEmptyLinesToKeep: 1
 KeepEmptyLinesAtTheStartOfBlocks: false
 InsertNewlineAtEOF: true
