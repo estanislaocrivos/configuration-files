@@ -139,16 +139,6 @@ EXCLUDE                = .venv/ \
                          .cache/ \
                          build/ \
                          docs/ \
-                         buffer/build/ \
-                         buffer/test/ \
-                         ring-buffer/build/ \
-                         ring-buffer/test/ \
-                         crc/build/ \
-                         crc/test/ \
-                         framing/build/ \
-                         framing/test/ \
-                         embedded-hal/build/ \
-                         embedded-hal/test/
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =
 EXCLUDE_SYMBOLS        =
@@ -328,19 +318,7 @@ ENABLE_PREPROCESSING   = YES
 MACRO_EXPANSION        = YES
 EXPAND_ONLY_PREDEF     = NO
 SEARCH_INCLUDES        = YES
-INCLUDE_PATH           = inc/ \
-                         buffer/inc/ \
-                         buffer/src/ \
-                         ring-buffer/inc/ \
-                         ring-buffer/src/ \
-                         crc/inc/ \
-                         crc/src/ \
-                         framing/inc/ \
-                         framing/src/ \
-                         embedded-hal/inc/ \
-                         embedded-hal/src/
-                         logging/inc/ \
-                         logging/src/
+INCLUDE_PATH           = include/ \
 INCLUDE_FILE_PATTERNS  =
 PREDEFINED             =
 EXPAND_AS_DEFINED      =
