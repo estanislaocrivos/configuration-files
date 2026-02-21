@@ -34,7 +34,7 @@ FormatStyle: file
 
 # Check-specific options
 CheckOptions:
-  # Naming conventions for embedded C
+  # Naming conventions for C embedded
   - key: readability-identifier-naming.GlobalConstantCase
     value: UPPER_CASE
   - key: readability-identifier-naming.GlobalConstantPrefix
